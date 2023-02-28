@@ -2,8 +2,10 @@
 
 <div>{{ Test.user }}</div>
 <div>{{ Test.name }}</div>
-<div>{{ Test.newName }}</div>
+
 <button @click="change">change</button>
+<div>{{ Test.user.age }}</div>
+<button @click="add">change++</button>
 </template>
 
 <script setup lang='ts'>
@@ -14,6 +16,9 @@ const Test = useTestStore()
 
 const change = () => {
   Test.setUser()
+}
+const add = () =>{
+  Test.user.age ++
 }
 
 </script>

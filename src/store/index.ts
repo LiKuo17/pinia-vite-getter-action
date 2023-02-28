@@ -16,7 +16,7 @@ const login = ():Promise<User> => {
         setTimeout(()=>{
             resolve({
                 user: "飞机",
-                age:111111111
+                age: 18
             })
         },2000)
     })
@@ -25,7 +25,9 @@ const login = ():Promise<User> => {
 export const useTestStore = defineStore(Names.TEST,{
     state: () => {
         return {
-            user:<User>{},
+            user:<User>{
+                age: 10
+            },
             name: "222"
         }
     },
@@ -44,8 +46,12 @@ export const useTestStore = defineStore(Names.TEST,{
         //异步写法
         async setUser(){
             const result = await login()
-            this.user= result
+            this.user = result
             this.setName('123321')
+        },
+        setAge(){
+            console.log(result.age);
+            result.age ++
         },
         setName(name:string){
             this.name = name
